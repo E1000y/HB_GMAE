@@ -19,6 +19,7 @@
     <main>
         <section class="login-form">
             <h2>Log In</h2>
+         
             <form action="#" method="post" id="login-form">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
@@ -27,7 +28,18 @@
                 <input type="submit" value="Se connecter">
             </form>
             <div class="forgotten-password-link"><a href="#">Mots de passe oublié</a></div>
-            <div id="errorMessage"></div>
+            <div id="errorMessage">
+                <?php
+                // Insérez ici votre code PHP pour gérer l'authentification
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // Récupérer les données du formulaire
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+
+                    // Votre code de validation et d'authentification ici
+                }
+                ?>
+            </div>
         </section>
     </main>
     <footer class="login_page-footer">
@@ -38,3 +50,4 @@
         </nav>
     </footer>
 </body>
+</html>
