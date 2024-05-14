@@ -1,28 +1,46 @@
-#contact, .login-form {
-	max-width: 379px;
-	margin: auto;
+body {
+	max-height: 1024px;
 }
 
-.login-form {
+header {
+	display: flex;
+	max-width: 1140px;
+	margin: auto;
+	margin-top: 50px;
+	align-items: center;
+}
+
+header img {
+	width: 10%;
+}
+
+.header-title {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+.login-form, .signin-form {
+	max-width: 379px;
+	margin: auto;
 	margin-top: 150px;
 }
 
-#contact > *, .login-form h2, .modal-pjct-add-form h2{
+.login-form h2, .signin-form h2 {
 	text-align: center;
 }
 
-#contact h2 {
-	margin-bottom: 20px;
-}
-
-#contact form, .login-form form {
+.login-form form, .signin-form form {
 	text-align: left;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input, .login-form input, .modal-pjct-add-form input, .modal-pjct-add-form select {
+.login-form input, .signin-form input {
 	height: 51px;
 	font-size: 1.2em;
 	border: none;
@@ -33,11 +51,11 @@
 	padding-left: 16px;
 }
 
-#contact label, .login-form label, .modal-pjct-add-form label {
+.login-form label, .signin-form label {
 	margin: 2em 0 1em 0;
 }
 
-#contact textarea, .login-form textarea {
+.login-form textarea, .signin-form textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	font-family: 'Work Sans';
@@ -65,10 +83,6 @@ footer nav ul {
 }
 
 
-.login_page-body {
-	max-height: 1024px;
-}
-
 .forgotten-password-link {
 	display: flex;
 	justify-content: center;
@@ -85,4 +99,9 @@ footer nav ul {
 	color: red;
 	border: red 2px solid;
 	margin-top: 50px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }

@@ -11,23 +11,28 @@
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/js/login.js" defer></script>
 </head>
-<body class="login_page-body">
+<body>
     <header>
         <img src="assets/logo_GMAE.png" alt="logo de GMAE">
         <h1 class="header-title">Projet<span>GMAE</span></h1>
     </header>
     <main>
-        <section class="login-form">
-            <h2>Log In</h2>
-            <form action="#" method="post" id="login-form">
+        <section class="signin-form">
+            <h2>Première inscription</h2>
+            <form action="#" method="post">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom">
+                <label for="prenom">Prénom</label>
+                <input type="text" name="prenom" id="prenom">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="name" id="name">
                 <label for="password">Mot de passe</label>
-                <input type="password" name="password" id="password"></input>
-                <input type="submit" value="Se connecter">
+                <input type="text" name="password" id="password">
+                <label for="secret-question">Question secrète</label>
+                <input type="text" name="secret-question" id="secret-question">
+                <label for="answer">Réponse</label>
+                <input type="text" name="answer" id="answer">
             </form>
-            <div class="forgotten-password-link"><a href="#">Mots de passe oublié</a></div>
-            <div id="errorMessage"></div>
         </section>
     </main>
     <footer class="login_page-footer">
@@ -38,3 +43,4 @@
         </nav>
     </footer>
 </body>
+</html>
