@@ -121,7 +121,9 @@ a {
 	width: 70%;
 }
 
-img[src="assets/images/ALLIA.png"]{}
+img[src="assets/images/ALLIA.png"]{
+	width: 50%;
+}
 
 img[src="assets/images/les-mutualistes.png"] {
 	width: 40%;
