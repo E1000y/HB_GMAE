@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="style.css">
+    <script src= "assets/main.js" defer></script>
+    <title>GMAE lastpage</title>
+</head>
+<body>
+ <main>
+    <header>
+        <img src="Assets/logo_GMAE.png" alt="logo de GMAE">
+        <h1 class="header-title">Projet<span>GMAE</span></h1>
+    </header>
+    <h1 id="website-name"></h1>
+    <div id="user-info">
+        <p id="user-name"></p>
+        <p id="user-orgs"></p>
+    </div>
+    <div id="user-info">
+        <p id="user-name"></p>
+    </div>
+    <div class="details">
+        <div class="rating-container">
+            <div class="rating" id="like">
+                <span class="like-button material-symbols-outlined" data-type="like">thumb_up</span>
+                <span class="rating-count" data-type="like-count">0</span>
+            </div>
+            <div class="rating" id="dislike">
+                <span class="like-button material-symbols-outlined" data-type="dislike">thumb_down</span>
+                <span class="rating-count" data-type="dislike-count">0</span>
+            </div>
+        </div>
+    </div>
+    <form class="comment-section">
+
+        <input type="text" id="comment-box" placeholder="Write a comment...">
+        <input type="submit" value="Soumettre">
+    </form>
+    <div>
+     <p id="Last-comments"> </p>
+    </div>
+</main>
+<script src="main.js"></script>
+<footer class="login_page-footer">
+    <nav>
+        <ul>
+            <li><a href="#">Mentions Légales</a></li>
+        </ul>
+    </nav>
+</footer>
+</body>
