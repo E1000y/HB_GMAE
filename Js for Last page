@@ -1,0 +1,94 @@
+
+
+//--  comments starts--functioning of the like and dislike buttons---//
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch data from server (simulate with static data for now)
+    const data = {
+        websiteName: '',
+        userName: 'John Doe',
+        userOrgs: ['Org1']
+    };
+
+    document.getElementById('website-name').textContent = data.websiteName;
+    document.getElementById('user-name').textContent = `Welcome, ${data.userName}`;
+    document.getElementById('user-orgs').textContent = `Organizations: ${data.userOrgs.join(', ')}`;
+
+    const likeButton = document.querySelector('.like-button[data-type="like"]');
+    const dislikeButton = document.querySelector('.like-button[data-type="dislike"]');
+    const likeCount = document.querySelector('.rating-count[data-type="like-count"]');
+    const dislikeCount = document.querySelector('.rating-count[data-type="dislike-count"]');
+
+    const sendActionToServer = (action) => {
+        fetch('/rate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ action: action })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
+
+    likeButton.addEventListener('click', () => {
+        let likeSelected = likeButton.parentElement.classList.contains('rating-selected');
+        let dislikeSelected = dislikeButton.parentElement.classList.contains('rating-selected');
+        
+        if (!likeSelected && !dislikeSelected) {
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            likeButton.parentElement.classList.add('rating-selected');
+            sendActionToServer('like');
+        } else if (!likeSelected && dislikeSelected) {
+            dislikeCount.textContent = parseInt(dislikeCount.textContent) - 1;
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            dislikeButton.parentElement.classList.remove('rating-selected');
+            likeButton.parentElement.classList.add('rating-selected');
+            sendActionToServer('like');
+        }
+    });
+
+    dislikeButton.addEventListener('click', () => {
+        let likeSelected = likeButton.parentElement.classList.contains('rating-selected');
+        let dislikeSelected = dislikeButton.parentElement.classList.contains('rating-selected');
+        
+        if (!likeSelected && !dislikeSelected) {
+            dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
+            dislikeButton.parentElement.classList.add('rating-selected');
+            sendActionToServer('dislike');
+        } else if (likeSelected && !dislikeSelected) {
+            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+            dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
+            likeButton.parentElement.classList.remove('rating-selected');
+            dislikeButton.parentElement.classList.add('rating-selected');
+            sendActionToServer('dislike');
+        }
+    });
+
+    document.getElementById('submit-comment').addEventListener('click', () => {
+        const comment = document.getElementById('comment-box').value;
+        if (comment) {
+            fetch('/comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ comment: comment })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Comment submitted:', data);
+                document.getElementById('comment-box').value = ''; // Clear the comment box
+            })
+            .catch((error) => {
+                console.error('Error submitting comment:', error);
+            });
+        }
+    });
+});
+//--  comments ends--functioning of the like and dislike buttons---//
