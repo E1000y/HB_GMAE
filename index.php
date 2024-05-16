@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="login_page-body">
     <header>
-        <img src="assets/logo_GMAE.png" alt="logo de GMAE">
+        <img src="assets/images/logo_GMAE.png" alt="logo de GMAE">
         <h1 class="header-title">Projet<span>GMAE</span></h1>
     </header>
     <main>
