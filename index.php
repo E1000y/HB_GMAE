@@ -1,3 +1,42 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $host = '127.0.0.1';
+    $username_db = 'root';
+    $password_db = '';
+    $dbname = 'gmae';
+
+    $conn = new mysqli($host, $username_db, $password_db, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE nom_utilisateur = ? AND mot_de_passe = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $_SESSION['username'] = $username;
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        $error_message = "Nom d'utilisateur ou mot de passe incorrect.";
+        echo "<p style='color:red;'>$error_message</p>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,15 +58,14 @@
     <main>
         <section class="login-form">
             <h2>Log In</h2>
-            <form action="#" method="post" id="login-form">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="login-form">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
                 <label for="password">Mot de passe</label>
-                <input type="password" name="password" id="password"></input>
+                <input type="password" name="password" id="password">
                 <input type="submit" value="Se connecter">
             </form>
             <div class="forgotten-password-link"><a href="#">Mots de passe oublié</a></div>
-            <div id="errorMessage"></div>
         </section>
     </main>
     <footer class="login_page-footer">
@@ -38,3 +76,4 @@
         </nav>
     </footer>
 </body>
+</html>
