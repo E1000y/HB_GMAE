@@ -1,0 +1,196 @@
+/*** comments start -header ***/
+header {
+	display: flex;
+	max-width: 1140px;
+	margin: auto;
+	margin-top: 50px;
+	align-items: center;
+}
+
+header img {
+	width: 10%;
+}
+
+.header-title {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+/*** comments end -header***/
+
+/*** comments start -for ratings ***/
+.rating-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.rating:not(:last-child) {
+    margin-right: 20px;
+}
+
+.like-button {
+    margin-right: 6px;
+    cursor: pointer;
+    color: #555555;
+}
+
+.rating-selected > .like-button,
+.rating-selected > .rating-count {
+    color: #009578;
+}
+
+.rating:not(.rating-selected) > .like-button:hover {
+    color: #000000;
+}
+
+.like-button:hover {
+    color: #ff0000;
+}
+/*** comments end -for ratings ***/
+
+.login-form, .signin-form {
+	max-width: 379px;
+	margin: auto;
+	margin-top: 150px;
+}
+
+.login-form h2, .signin-form h2 {
+	text-align: center;
+}
+
+.login-form form, .signin-form form {
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.login-form input, .signin-form input {
+	height: 51px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.login-form label, .signin-form label {
+	margin: 2em 0 1em 0;
+}
+
+.login-form textarea, .signin-form textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 16px;
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 4em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+
+footer nav ul {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+}
+
+nav ul li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.forgotten-password-link {
+	display: flex;
+	justify-content: center;
+}
+
+.login_page-footer {
+	margin-top: 355px;
+	display: flex;
+	justify-content: center;
+}
+
+#errorMessage {
+	display: none;
+	color: red;
+	border: red 2px solid;
+	margin-top: 50px;
+}
+/**** comments start logged user page *****/
+
+.entreprise-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.entreprise-section div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 70%;
+}
+
+.entreprise-section img {
+	max-width: 70%; 
+    max-height: 100%; 
+    object-fit: contain;
+	margin: 20px;
+}
+
+.entreprise-section span {
+	margin: 10px;
+}
+/****  Comments ends logged user page *****/
+
+/***  Comments start-Comment box***/
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#comment-box {
+    width: 400px; /* Initial width */
+    height: 200px; /* Initial height */
+    resize: both; /* Allow resizing both horizontally and vertically */
+    overflow: auto; /* Add scrollbars if content overflows */
+    border: 1px solid #ccc; /* Add border for visual clarity */
+    padding: 10px; /* Add some padding */
+    font-size: 14px;
+    border-radius: 8px;
+
+}
+/***  Comments ends-Comment box***/
