@@ -4,12 +4,12 @@ loginForm.addEventListener('submit', async function(event) {
     event.preventDefault(); // Empêche le rechargement de la page après la soumission du formulaire
 
     // Récupération des valeurs saisies des champs d'entrée
-    let email = document.getElementById('email').value;
+    let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
     // Construction de l'objet de données à envoyer dans la requête POST
     let user = {
-      email: email,
+      username: username,
       password: password
     };
   
